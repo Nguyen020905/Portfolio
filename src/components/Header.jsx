@@ -8,7 +8,7 @@ import {
   FiMenu,
   FiX,
 } from "react-icons/fi";
-
+import Profile from "../Picture/Profile.jpg";
 const Header = () => {
   //toggle the menu open/close
   const [isOpen, setIsOpen] =
@@ -48,8 +48,14 @@ const Header = () => {
           /* animation for the header */
           className="flex items-center"
         >
-          <div className="h-10 w-10 rounded-xl bg-gradient-to-r from-gray-500 to-gray-100 flex items-center justify-center text-purple-600 font-bold text-xl mr-3">
-            N
+          <div
+            className="h-10 w-10 rounded-full bg-gradient-to-r from-gray-500 to-gray-100 flex items-center justify-center text-purple-600 font-bold text-xl mr-3 border border-transparent hover:border-violet-500 
+hover:shadow-[0_0_20px_#7C3AED]"
+          >
+            <img
+              src={Profile}
+              className="w-full h-full rounded-full object-cover"
+            />
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">
             Nguyen Nguyen
