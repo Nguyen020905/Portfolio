@@ -9,6 +9,7 @@ import {
   FiX,
 } from "react-icons/fi";
 import Profile from "../Picture/Profile.jpg";
+import Profile2 from "../Picture/Profile2.png";
 const Header = () => {
   //toggle the menu open/close
   const [isOpen, setIsOpen] =
@@ -34,7 +35,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
-        {/*logo Name */}
+        {/*Avatar */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
@@ -50,11 +51,17 @@ const Header = () => {
         >
           <div
             className="h-10 w-10 rounded-full bg-gradient-to-r from-gray-500 to-gray-100 flex items-center justify-center text-purple-600 font-bold text-xl mr-3 border border-transparent hover:border-violet-500 
-hover:shadow-[0_0_20px_#7C3AED]"
+hover:shadow-[0_0_20px_#7C3AED]  group relative overflow-hidden"
           >
             <img
               src={Profile}
-              className="w-full h-full rounded-full object-cover"
+              alt="Defualt Profile"
+              className="w-full h-full rounded-full object-cover absolute transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+            />
+            <img
+              src={Profile2}
+              alt="Second Profile"
+              className="w-full h-full rounded-full object-cover absolute transition-opacity duration-300 opacity-0 group-hover:opacity-100"
             />
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">
