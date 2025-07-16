@@ -62,7 +62,7 @@ const Skills = () => (
       </motion.h2>
 
       <motion.div
-        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-center"
+        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-5 justify-center"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
