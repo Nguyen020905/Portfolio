@@ -70,23 +70,27 @@ const Skills = () => (
       >
         {skillList.map(({ name, Icon, color }, i) => (
           <motion.div
+            key={i}
             whileHover={{ scale: 1.12 }}
-            className="group flex flex-col items-center cursor-default"
+            className="group cursor-default"
           >
             <motion.div
               initial={{
-                color: " #ffffff",
-                boxShadow: " 0px 0px 0px rgba(0,0,0,0)",
+                color: "#ffffff",
+                boxShadow: "0px 0px 0px rgba(0,0,0,0)",
               }}
-              whileHover={{ color, boxShadow: "0px 0px 12px #FFB6C1" }} // or any hover color you want
+              whileHover={{
+                color,
+                boxShadow: "0px 0px 12px #FFB6C1", // light pink glow
+              }}
               transition={{ duration: 0.3 }}
-              className="w-16 h-16 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center"
+              className="w-20 h-20 border rounded-xl border-gray-300 dark:border-gray-600 flex flex-col items-center justify-center text-center p-2"
             >
-              <Icon className="text-2xl" />
+              <Icon className="text-2xl mb-1" />
+              <span className="text-xs text-gray-700 dark:text-gray-300 font-medium">
+                {name}
+              </span>
             </motion.div>
-            <span className="mt-2 text-sm text-gray-700 dark:text-gray-300 font-medium">
-              {name}
-            </span>
           </motion.div>
         ))}
       </motion.div>
