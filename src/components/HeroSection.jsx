@@ -37,7 +37,7 @@ const HeroSection = () => {
             <div
               onMouseEnter={handleHoverStart}
               onMouseLeave={handleHoverEnd}
-              className="relative w-32 h-32 rounded-full p-[4px] bg-gradient-to-tr from-purple-500 via-black to-pink-500 
+              className="relative w-32 h-32 rounded-full  p-[4px] bg-white
              hover:scale-110 hover:rotate-[-6deg] transition-transform duration-300 
              hover:shadow-[0_0_35px_#f472d0] shadow-lg"
             >
