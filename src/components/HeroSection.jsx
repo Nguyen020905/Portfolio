@@ -37,13 +37,17 @@ const HeroSection = () => {
             <div
               onMouseEnter={handleHoverStart}
               onMouseLeave={handleHoverEnd}
-              className="relative w-20 h-20 rounded-full border-[4px] border-white overflow-hidden flex items-center justify-center shadow-lg transition-transform duration-300 hover:-rotate-6 hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
+              className="relative w-32 h-32 rounded-full p-[4px] bg-gradient-to-tr from-purple-500 via-black to-pink-500 
+             hover:scale-110 hover:rotate-[-6deg] transition-transform duration-300 
+             hover:shadow-[0_0_35px_#f472d0] shadow-lg"
             >
-              <img
-                src={imageRevealed ? Profile2 : Profile}
-                alt="Nguyen Nguyen"
-                className="w-full h-full object-cover object-center"
-              />
+              <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-[#0f0f0f] flex items-center justify-center">
+                <img
+                  src={imageRevealed ? Profile2 : Profile}
+                  alt="Nguyen Nguyen"
+                  className="w-full h-full object-cover object-center rounded-full"
+                />
+              </div>
             </div>
 
             {/* Name + Location */}
