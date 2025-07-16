@@ -1,68 +1,58 @@
 import React from "react";
-import GlareHover from "./GlareHover";
-import { FaReact, FaHtml5, FaNodeJs, FaPython } from "react-icons/fa";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { IoLogoCss3 } from "react-icons/io";
-import { TbBrandOauth } from "react-icons/tb";
+import {
+  SiReact,
+  SiHtml5,
+  SiTailwindcss,
+  SiCss3,
+  SiOauth,
+  SiPython,
+  SiFigma,
+} from "react-icons/si";
 import { motion } from "framer-motion";
 
 const skillList = [
-  { name: "React", image: FaReact, hoverColor: "group-hover:text-cyan-400" },
-  { name: "HTML5", image: FaHtml5, hoverColor: "group-hover:text-orange-500" },
-  {
-    name: "Tailwind",
-    image: RiTailwindCssFill,
-    hoverColor: "group-hover:text-sky-400",
-  },
-  { name: "CSS3", image: IoLogoCss3, hoverColor: "group-hover:text-blue-500" },
-  {
-    name: "OAuth2",
-    image: TbBrandOauth,
-    hoverColor: "group-hover:text-green-400",
-  },
-  {
-    name: "Python",
-    image: FaPython,
-    hoverColor: "group-hover:text-yellow-400",
-  },
+  { name: "React", Icon: SiReact, color: "#61DAFB" },
+  { name: "HTML5", Icon: SiHtml5, color: "#E34F26" },
+  { name: "Tailwind", Icon: SiTailwindcss, color: "#38B2AC" },
+  { name: "CSS3", Icon: SiCss3, color: "#264DE4" },
+  { name: "OAuth2", Icon: SiOauth, color: "#7BAA83" },
+  { name: "Python", Icon: SiPython, color: "#3776AB" },
+  { name: "Figma", Icon: SiFigma, color: "#F24E1E" },
 ];
 
-const Skills = () => {
-  return (
-    <div className="py-10 px-4">
+const Skills = () => (
+  <section className="py-16 px-4">
+    <div className="max-w-5xl mx-auto text-center">
+      <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">
+        My Tech Stack
+      </h2>
+
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        className="flex flex-wrap justify-center gap-8"
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.4 }}
-        className="grid grid-cols-3 sm:grid-cols-6 gap-4 justify-items-center"
+        viewport={{ once: true, amount: 0.5 }}
       >
-        {skillList.map((skill, index) => {
-          const Icon = skill.image;
+        {skillList.map((skill, i) => {
+          const { name, Icon, color } = skill;
           return (
-            <GlareHover
-              key={index}
-              glareColor="#ffffff"
-              glareOpacity={0.3}
-              glareAngle={-30}
-              glareSize={200}
-              transitionDuration={800}
-              playOnce={false}
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="flex flex-col items-center cursor-default"
             >
-              <div className="group flex flex-col items-center px-3 py-3 rounded-lg shadow-md bg-white dark:bg-gray-900 w-[100px] h-[100px] justify-center">
-                <Icon
-                  className={`text-3xl text-violet-600 dark:text-violet-400 transition-colors duration-300 ${skill.hoverColor}`}
-                />
-                <span className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                  {skill.name}
-                </span>
-              </div>
-            </GlareHover>
+              <Icon className="text-4xl mb-2" style={{ color }} />
+              <span className="text-base text-gray-700 dark:text-gray-300">
+                {name}
+              </span>
+            </motion.div>
           );
         })}
       </motion.div>
     </div>
-  );
-};
+  </section>
+);
 
 export default Skills;
