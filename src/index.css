@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ Register custom font */
+@font-face {
+  font-family: "BebasNeue";
+  src: url("../src/font/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ✅ (Optional) Define CSS variable if you want to use it manually */
+:root {
+  --font-bebas: "BebasNeue", sans-serif;
+}
+
+/* ✅ Global styles */
+body {
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  background-color: black;
+  color: white;
+  cursor: none;
+}
