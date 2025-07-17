@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [hoverIndex, setHoveredIndex] = useState(null);
@@ -12,6 +12,8 @@ const Header = () => {
   const containerRef = useRef(null);
   const itemRefs = useRef([]);
   const [highlightStyle, setHighlightStyle] = useState({ left: 0, width: 0 });
+
+  const navItems = ["Home", "About", "Projects", "Contact"];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,8 +36,6 @@ const Header = () => {
       });
     }
   }, [hoverIndex]);
-
-  const navItems = ["Home", "About", "Projects", "Contact"];
 
   return (
     <header
@@ -60,7 +60,10 @@ const Header = () => {
               left: highlightStyle.left,
               width: highlightStyle.width,
             }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{
+              duration: 0.2,
+              ease: "easeInOut",
+            }}
           />
           {navItems.map((item, index) => (
             <a
@@ -76,8 +79,8 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* 🍔 Mobile menu button */}
-        <div className="md:hidden absolute right-4">
+        {/* 🍔 Mobile button */}
+        <div className="md:hidden absolute right-4 top-4 z-60">
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={toggleMenu}
@@ -88,57 +91,55 @@ const Header = () => {
         </div>
       </motion.div>
 
-      {/* 📱 Mobile dropdown menu with blur and animated close */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Blur background layer */}
-            <motion.div
-              key="blur"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+      {/* 📱 Mobile Menu w/ Blur */}
+      {isOpen && (
+        <>
+          {/* 🔲 Blur Background */}
+          <motion.div
+            key="blur"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={toggleMenu}
+            className="fixed inset-0 z-40 backdrop-blur-sm bg-black/40"
+          />
+
+          {/* 📌 Fixed Close Button (above blur and dropdown) */}
+          <div className="fixed top-4 right-4 z-60 md:hidden">
+            <button
               onClick={toggleMenu}
-              className="fixed inset-0 z-40 backdrop-blur-sm bg-black/40"
-            />
-
-            {/* Close button (NOT blurred) */}
-            <div className="fixed top-4 right-4 z-50 md:hidden">
-              <button
-                onClick={toggleMenu}
-                className="text-white p-2 border border-violet-500 rounded-xl bg-[#1e1e1e]/60 backdrop-blur hover:bg-violet-500 hover:text-white transition-all duration-300"
-              >
-                <FiX size={24} />
-              </button>
-            </div>
-
-            {/* Dropdown nav content */}
-            <motion.div
-              key="menu"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="fixed top-0 left-0 w-full bg-[#0f0f0f] px-6 py-6 border-t border-gray-800 shadow-xl z-50 md:hidden"
+              className="text-white p-2 border border-violet-500 rounded-xl bg-[#1e1e1e]/60 backdrop-blur hover:bg-violet-500 hover:text-white transition-all duration-300"
             >
-              <nav className="flex flex-col space-y-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    onClick={() => setIsOpen(false)}
-                    className="group relative text-center text-lg font-medium text-gray-300 hover:text-white transition-colors duration-300"
-                  >
-                    <span className="relative z-10 px-4 py-2">{item}</span>
-                    <span className="absolute inset-0 mx-auto h-10 w-full scale-0 rounded-full bg-violet-500 opacity-10 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-20"></span>
-                  </a>
-                ))}
-              </nav>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+              <FiX size={24} />
+            </button>
+          </div>
+
+          {/* 📄 Dropdown Menu */}
+          <motion.div
+            key="menu"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed top-0 left-0 w-full bg-[#0f0f0f] px-6 py-6 border-t border-gray-800 shadow-xl z-50 md:hidden"
+          >
+            <nav className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setIsOpen(false)}
+                  className="group relative text-center text-lg font-medium text-gray-300 hover:text-white transition-colors duration-300"
+                >
+                  <span className="relative z-10 px-4 py-2">{item}</span>
+                  <span className="absolute inset-0 mx-auto h-10 w-full scale-0 rounded-full bg-violet-500 opacity-10 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-20"></span>
+                </a>
+              ))}
+            </nav>
+          </motion.div>
+        </>
+      )}
     </header>
   );
 };
