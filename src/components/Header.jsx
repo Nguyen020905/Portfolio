@@ -79,7 +79,7 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* 🍔 Mobile button */}
+        {/* 🍔 Mobile Hamburger */}
         <div className="md:hidden absolute right-4 top-4 z-60">
           <motion.button
             whileTap={{ scale: 0.9 }}
@@ -91,7 +91,7 @@ const Header = () => {
         </div>
       </motion.div>
 
-      {/* 📱 Mobile Menu w/ Blur */}
+      {/* 📱 Mobile Menu w/ Blur and Topbar */}
       {isOpen && (
         <>
           {/* 🔲 Blur Background */}
@@ -102,11 +102,11 @@ const Header = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={toggleMenu}
-            className="fixed inset-0 z-40 backdrop-blur-sm bg-black/40"
+            className="fixed inset-0 z-30 backdrop-blur-sm bg-black/40"
           />
 
-          {/* 📌 Fixed Close Button (above blur and dropdown) */}
-          <div className="fixed top-4 right-4 z-60 md:hidden">
+          {/* 🧊 Dark Top Bar with Close Button */}
+          <div className="fixed top-0 left-0 w-full z-50 bg-[#0f0f0f] border-b border-gray-800 px-4 py-3 flex justify-end md:hidden">
             <button
               onClick={toggleMenu}
               className="text-white p-2 border border-violet-500 rounded-xl bg-[#1e1e1e]/60 backdrop-blur hover:bg-violet-500 hover:text-white transition-all duration-300"
@@ -115,14 +115,14 @@ const Header = () => {
             </button>
           </div>
 
-          {/* 📄 Dropdown Menu */}
+          {/* 📄 Dropdown Menu (Below Top Bar) */}
           <motion.div
             key="menu"
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed top-0 left-0 w-full bg-[#0f0f0f] px-6 py-6 border-t border-gray-800 shadow-xl z-50 md:hidden"
+            className="fixed top-14 left-0 w-full bg-[#0f0f0f] px-6 py-6 border-t border-gray-800 shadow-xl z-40 md:hidden"
           >
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
