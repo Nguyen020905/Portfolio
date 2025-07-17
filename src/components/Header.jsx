@@ -37,8 +37,12 @@ const Header = () => {
               href={`#${item.toLowerCase()}`}
               className="relative group overflow-hidden text-white font-medium hover:text-violet-400 transition-colors duration-300 group"
             >
+              <span
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+      w-full h-full bg-violet-500 rounded-full opacity-1 scale-0 group-hover:scale-100
+      transition-transform duration-300 ease-out z-0"
+              ></span>
               <span className="relative z-10 "> {item} </span>
-              <span className="absolute inset-0 rounded-full scale-0 group-hover:scale-150 bg-violet-500 opacity-10 transition-all duration-500 ease-out"></span>
             </a>
           ))}
         </nav>
@@ -48,7 +52,7 @@ const Header = () => {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={toggleMenu}
-            className="text-white p-2 border border-violet-500 rounded-lg bg-[#1e1e1e]/60 backdrop-blur hover:bg-violet-500 hover:text-white transition-all duration-300"
+            className="text-white p-2 border border-violet-500 rounded-xl bg-[#1e1e1e]/60 backdrop-blur hover:bg-violet-500 hover:text-white transition-all duration-300"
           >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </motion.button>
