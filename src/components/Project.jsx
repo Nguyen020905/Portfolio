@@ -7,7 +7,7 @@ import { FaReact, FaHtml5, FaNodeJs } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiSpotify, SiSocketdotio, SiMongodb } from "react-icons/si";
 
-// Project data with icons and short description
+// Project data
 const projects = [
   {
     title: "University Portal",
@@ -45,7 +45,7 @@ const ProjectSection = () => {
           My Projects
         </h2>
 
-        {/* Project cards grid */}
+        {/* Grid of projects */}
         <div ref={ref} className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => {
             const ToolIcons = project.tools.map((Icon, i) => (
@@ -60,6 +60,7 @@ const ProjectSection = () => {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }} // 👈 Lifts card up when hovered
                 transition={{
                   delay: index * 0.2,
                   duration: 0.6,
@@ -76,18 +77,16 @@ const ProjectSection = () => {
                   />
                 </div>
 
-                {/* Card content */}
+                {/* Card body */}
                 <div className="p-5">
                   <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
                     {project.title}
                   </h3>
 
-                  {/* Tool icons */}
                   <div className="mt-2 flex flex-wrap items-center">
                     {ToolIcons}
                   </div>
 
-                  {/* Short description */}
                   <p className="mt-2 text-gray-600 dark:text-gray-300 text-sm">
                     {project.description}
                   </p>
