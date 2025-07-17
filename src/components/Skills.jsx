@@ -84,7 +84,7 @@ const Skills = () => (
                 boxShadow: "0px 0px 12px #FFB6C1", // light pink glow
               }}
               transition={{ duration: 0.3 }}
-              className="w-20 h-20 border rounded-xl border-gray-300 dark:border-gray-600 flex flex-col items-center justify-center text-center p-2"
+              className="w-20 h-20 border-2 rounded-xl border-gray-300 dark:border-gray-600 flex flex-col items-center justify-center text-center p-2"
             >
               <Icon className="text-2xl mb-1" />
               <span className="text-xs text-gray-700 dark:text-gray-300 font-medium">
