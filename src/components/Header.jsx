@@ -35,10 +35,10 @@ const Header = () => {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="relative text-white font-medium hover:text-violet-400 transition-colors duration-300 group"
+              className="relative group overflow-hidden text-white font-medium hover:text-violet-400 transition-colors duration-300 group"
             >
-              {item}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-violet-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="relative z-10 "> {item} </span>
+              <span className="absolute inset-0 rounded-full scale-0 group-hover:scale-150 bg-violet-500 opacity-10 transition-all duration-500 ease-out"></span>
             </a>
           ))}
         </nav>
