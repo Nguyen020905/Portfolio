@@ -46,7 +46,10 @@ const ProjectSection = () => {
         </h2>
 
         {/* Grid of projects */}
-        <div ref={ref} className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          ref={ref}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 place-items-center"
+        >
           {projects.map((project, index) => {
             const ToolIcons = project.tools.map((Icon, i) => (
               <Icon key={i} className="text-xl text-violet-600 mr-2" />
@@ -60,7 +63,7 @@ const ProjectSection = () => {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                whileHover={{ y: -8, transition: { duration: 0.2 } }} // 👈 Lifts card up when hovered
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 transition={{
                   delay: index * 0.2,
                   duration: 0.6,
