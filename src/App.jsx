@@ -4,6 +4,7 @@ import CustomCursor from "./components/CustomCursor";
 import Project from "./components/Project";
 import Skills from "./components/Skills";
 import Aurora from "./components/Aurora.jsx";
+import AboutMe from "./components/AboutMe.jsx";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       <div className="relative z-10">
         <Header />
         <HeroSection />
+        <AboutMe />
         <Skills />
         <Project />
         <CustomCursor />
