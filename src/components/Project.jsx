@@ -51,8 +51,8 @@ const ProjectSection = () => {
   return (
     <section className="py-20" id="projects">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          My Projects
+        <h2 className="  text-3xl font-bold text-gray-900 dark:text-white mb-16 text-center">
+          Projects
         </h2>
 
         {/* Grid of projects */}
@@ -119,7 +119,7 @@ const ProjectSection = () => {
           }}
           className="mt-12 col-span-full flex justify-center"
         >
-          <div className="p-6 border-2 border border-violet-500 rounded-2xl bg-white dark:bg-gray-900 hover:shadow-[0_0_20px_#7C3AED]/50 transition-shadow text-center w-full max-w-sm">
+          <div className="p-6 border-2  border-violet-500 rounded-2xl bg-white dark:bg-gray-900 hover:shadow-[0_0_20px_#7C3AED]/50 transition-shadow text-center w-full max-w-sm">
             <p className="text-xl text-gray-800 dark:text-gray-100 font-semibold">
               <Typewriter
                 words={[
