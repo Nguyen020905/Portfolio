@@ -3,12 +3,22 @@ import { motion, useInView } from "framer-motion";
 import Eduniversity from "../Picture/Eduniversity.png";
 import Spotify from "../Picture/Spotify.png";
 import Movie from "../Picture/Movie.png";
+import Portfolio from "../Picture/portfolio.png";
 import { FaReact, FaHtml5, FaNodeJs } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiSpotify, SiSocketdotio, SiMongodb } from "react-icons/si";
+import { Typewriter } from "react-simple-typewriter";
 
 // Project data
 const projects = [
+  {
+    title: "My Portfolio Site",
+    tools: [FaReact, RiTailwindCssFill, FaHtml5],
+    description:
+      "A personal website showcasing my work, skills, and contact info.",
+    image: Portfolio,
+    link: "https://nguyennguyen.dev",
+  },
   {
     title: "University Portal",
     tools: [FaReact, RiTailwindCssFill, FaHtml5],
@@ -98,6 +108,35 @@ const ProjectSection = () => {
             );
           })}
         </div>
+
+        {/* More to Come Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            delay: projects.length * 0.2 + 0.4,
+            duration: 0.6,
+          }}
+          className="mt-12 col-span-full flex justify-center"
+        >
+          <div className="p-6 border-2 border border-violet-500 rounded-2xl bg-white dark:bg-gray-900 hover:shadow-[0_0_20px_#7C3AED]/50 transition-shadow text-center w-full max-w-sm">
+            <p className="text-xl text-gray-800 dark:text-gray-100 font-semibold">
+              <Typewriter
+                words={[
+                  "🚧 More to come...",
+                  "🛠 Stay tuned!",
+                  "✨ New projects soon!",
+                ]}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={70}
+                deleteSpeed={40}
+                delaySpeed={1200}
+              />
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
