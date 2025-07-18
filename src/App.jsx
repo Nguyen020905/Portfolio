@@ -5,6 +5,7 @@ import Project from "./components/Project";
 import Skills from "./components/Skills";
 import Aurora from "./components/Aurora.jsx";
 import AboutMe from "./components/AboutMe.jsx";
+import ContactSection from "./components/Contact.jsx";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Skills />
         <Project />
         <CustomCursor />
+        <ContactSection />
       </div>
     </div>
   );
