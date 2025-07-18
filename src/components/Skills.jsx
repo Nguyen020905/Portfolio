@@ -51,8 +51,7 @@ const Skills = () => (
   <section className="py-24 px-6">
     <div className="max-w-5xl mx-auto text-left ">
       <motion.h2
-        className="text-4xl font-semibold mb-16 text-gray-900 dark:text-white  sm:pl-8 md:pl-16 "
-        style={{ paddingLeft: "60px" }}
+        className="text-4xl font-semibold mb-16 text-gray-900 dark:text-white text-center"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
